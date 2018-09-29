@@ -1,0 +1,248 @@
+.navigation {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 50px 50px 15px;
+	background-color: white;
+	z-index: get-index(navigation);
+	transition: 0.3s ease-out top;
+	@include RobotoBold;
+
+	&__container {
+		display: flex;
+		height: 60px;
+		justify-content: space-between;
+		position: relative;
+	}
+
+	&--transition {
+		opacity: 0;
+		transform: translate(0, 20px);
+
+		&.navigation--loaded {
+			transition: 1s;
+			opacity: 1;
+			transform: translate(0, 0);
+		}
+	}
+
+	&__burger-menu {
+		display: none;
+	}
+
+	&__brand-logo {
+		display: flex;
+		align-items: center;
+
+		&::before {
+			content: '';
+			display: block;
+			margin-right: 25px;
+			background: url("images/logo.png") no-repeat;
+			background-size: contain;
+			height: 50px;
+			width: 50px;
+		}
+
+		@include RobotoBold;
+
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 1.9em;
+	}
+
+	&__links {
+		max-width: 700px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: auto;
+
+		&-container {
+			display: flex;
+		}
+	}
+
+	&__item {
+		padding: 20px;
+	}
+
+	&__link {
+		position: relative;
+		display: inline-block;
+
+		@include putUnderline;
+
+		&.active {
+			@include underline;
+		}
+	}
+
+	&__callback {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		text-align: right;
+
+		&-number {
+			font-weight: bold;
+
+			@include BebasBold;
+
+			font-size: 2em;
+		}
+
+		&-order {
+			border-bottom: 1px dashed get-color(text-secondary);
+			color: get-color(text-secondary);
+			font-size: .875em;
+		}
+	}
+
+	&__order-btn {
+		text-transform: uppercase;
+	}
+
+	&__socials {
+		.social-links {
+			justify-content: space-around;
+
+		}
+
+		.socials {
+			width: 1.3em;
+			height: 1.3em;
+
+			&::before {
+				background-size: contain;
+			}
+		}
+	}
+
+	&__nav {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		-webkit-transition: transform 0.5s ease;
+		-moz-transition: transform 0.5s ease;
+		-ms-transition: transform 0.5s ease;
+		-o-transition: transform 0.5s ease;
+		transition: transform 0.5s ease;
+		background: white;
+		color: white;
+		cursor: pointer;
+		font-size: 2em;
+		min-height: 100%;
+		height: auto !important;
+		right: 0;
+		padding: 4rem 20% 2rem;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+		font-size: 1.5em;
+		transform: translate(100%, 0);
+
+		a {
+			color: get-color(text-primary);
+		}
+
+		&.expanded {
+			transform: translate(0, 0);
+		}
+
+		ul {
+
+		}
+
+		li {
+			padding: 20px;
+		}
+	}
+
+	&__nav-toggle {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+		cursor: pointer;
+		height: .5em;
+		right: 1em;
+		position: absolute;
+		top: 50%;
+		transform: translate(0, -50%);
+		width: 1.6em;
+		z-index: 2;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	&__nav-toggle &__nav-toggle-bar,
+	&__nav-toggle &__nav-toggle-bar::after,
+	&__nav-toggle &__nav-toggle-bar::before {
+		position: absolute;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+		background: black;
+		content: '';
+		height: 0.2rem;
+		width: 100%;
+	}
+
+	&__nav-toggle &__nav-toggle-bar {
+		margin-top: 0;
+	}
+
+	&__nav-toggle &__nav-toggle-bar::after {
+		margin-top: 0.5rem;
+	}
+
+	&__nav-toggle &__nav-toggle-bar::before {
+		margin-top: -0.5rem;
+	}
+
+	&__nav-toggle.expanded &__nav-toggle-bar {
+		background: transparent;
+	}
+
+	&__nav-toggle.expanded &__nav-toggle-bar::after, &__nav-toggle.expanded &__nav-toggle-bar::before {
+		background: black;
+		margin-top: 0;
+	}
+
+	&__nav-toggle.expanded &__nav-toggle-bar::after {
+		-ms-transform: rotate(45deg);
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+	&__nav-toggle.expanded &__nav-toggle-bar::before {
+		-ms-transform: rotate(-45deg);
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+	}
+}
+
+navbar {
+	.modal-window {
+
+		.help-form {
+			height: 100%;
+
+			&__title {
+				margin: 0;
+			}
+		}
+	}
+}

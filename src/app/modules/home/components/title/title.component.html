@@ -1,0 +1,35 @@
+<div class="promo__title" [ngClass]="{ 'promo__title--loaded' : animationHooks.titleLoaded }">
+	<div class="promo__title-wrapper">
+		<h2 class="promo__description">
+			Get an
+			<span class="underline-animation" [ngClass]="{ 'underline-animation--loaded' : animationHooks.onTimeLabelLoaded }">Explainer Video</span>
+			made on time to increase your sales and conversion by 60%
+		</h2>
+		<div class="promo__about-company">
+			<play-btn [ngClass]="{'play-btn--loaded' : animationHooks.onTimeLabelLoaded }" (click)="openRandomVideo()"></play-btn>
+			<span class="promo__video-description" [ngClass]="{'promo__video-description--loaded' : animationHooks.onGoalLabelLoaded }">
+			Our company in 90 seconds
+		</span>
+		</div>
+		<ul class="promo__advantages">
+			<li class="promo__advantage-item" [ngClass]="{'promo__advantage-item--loaded' : animationHooks.onTimeLabelLoaded}">
+				On-time
+			</li>
+			<li class="promo__advantage-item" [ngClass]="{'promo__advantage-item--loaded' : animationHooks.onBudgetLabelLoaded}">
+				On-budget
+			</li>
+			<li class="promo__advantage-item" [ngClass]="{'promo__advantage-item--loaded' : animationHooks.onGoalLabelLoaded}">
+				On-goal
+			</li>
+		</ul>
+	</div>
+	<div class="promo__pointer-wrapper" [ngClass]="{'fade-in': !isScrolled(), 'fade-out': isScrolled()}">
+		<div class="promo__pointer">
+			<span class="promo__pointer-wheel"></span>
+		</div>
+	</div>
+</div>
+
+<modal-window [id]="randomVideoModalId" [classes]="{'random-video__modal-window' : true, 'half-screen__details': true }">
+	<video-player *ngIf="isOpenedModal()" [videoUrl]="randomVideo?.videoUrl"></video-player>
+</modal-window>

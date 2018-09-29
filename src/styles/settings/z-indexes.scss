@@ -1,0 +1,11 @@
+$indexes: (
+	underline: -1,
+	dropdown: 8,
+	navigation: 9,
+	mask: 10,
+	modal-window: 11
+);
+
+@function get-index($component) {
+	@return map-get($indexes, $component);
+}

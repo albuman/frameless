@@ -1,0 +1,108 @@
+@include respond-to(mobile) {
+	.customer-orders {
+		&__container {
+			height: auto;
+		}
+
+		&__title {
+			@include mobPrimaryHeader;
+		}
+
+		&__list {
+			display: none;
+		}
+
+		&__description {
+			padding: 0 15px 40px;
+
+			& > * {
+				padding-top: 0;
+			}
+		}
+
+		&__target {
+			padding-bottom: 40px;
+		}
+
+		&__preview {
+			&-list {
+				display: block;
+				overflow: hidden;
+			}
+
+			&-description {
+				width: 100%;
+				flex-shrink: 0;
+				max-height: unset;
+
+				iframe {
+					touch-action: pan-y !important;
+				}
+			}
+		}
+
+		&__carousel {
+			display: flex;
+			position: relative;
+			transition: .4s left;
+
+			&-item {
+				flex-grow: 1;
+				flex-shrink: 1;
+				flex-basis: 0;
+			}
+		}
+
+		&__item {
+			&-title {
+				display: block;
+			}
+
+			&-name {
+				font-size: 1.5em;
+
+				@include RobotoBold;
+			}
+		}
+
+		&__video {
+			height: auto;
+			padding-top: 20px;
+		}
+
+		&__description-section {
+			flex-direction: column;
+			padding: 15px;
+		}
+
+		&__price-section {
+			padding-top: 40px;
+		}
+
+		&__more-btn {
+			margin: 50px auto 20px auto !important;
+		}
+
+		&__price,
+		&__time {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		&__price-total,
+		&__time-total,
+		&__target-total,
+		&__result-total {
+			padding: 15px 0 0 20px;
+		}
+
+		&__comment {
+			padding-top: 40px;
+		}
+
+		&__socials {
+			padding-top: 40px;
+		}
+	}
+}

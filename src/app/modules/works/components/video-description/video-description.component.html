@@ -1,0 +1,39 @@
+<div class="video-item__description">
+	<div class="video-item__name">
+		<h3 class="video-item__title">
+			{{ video.name }}
+		</h3>
+		<span class="video-item__category">
+			{{ video.tag }}
+		</span>
+	</div>
+	<div class="video-item__info mobile-unvisible">
+		<div class="video-item__target">
+			<div class="video-item__target-title">
+				Target
+			</div>
+			<p class="video-item__target-description">
+				{{ video.target }}
+			</p>
+		</div>
+		<div class="video-item__result">
+			<div class="video-item__result-title">
+				Result
+			</div>
+			<p class="video-item__result-description">
+				{{ video.result }}
+			</p>
+		</div>
+		<button class="btn video-item__more-btn" (click)="activateVideo()">
+			View Result
+		</button>
+	</div>
+</div>
+<div class="video-item__video">
+	<video-player [videoUrl]="video.videoUrl"></video-player>
+</div>
+<div class="video-item__info desktop-unvisible">
+	<button class="btn video-item__more-btn" (click)="activateVideo()">
+		View Result
+	</button>
+</div>

@@ -1,0 +1,47 @@
+.side-navigation {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+
+	&__container {
+		flex-shrink: 1;
+		flex-grow: 1;
+		flex-basis: auto;
+	}
+
+	&__position-pointer {
+		position: fixed;
+		visibility: hidden;
+	}
+
+	&__list-daemon {
+		visibility: hidden;
+	}
+
+    &__list {
+		position: fixed;
+		
+		&.bottom-attached {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+
+		&.top-attached {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+    }
+
+    &__link {
+        padding: 25px 10px;
+		position: relative;
+		cursor: pointer;
+
+        &.active {
+            @include activeLine(150px, -170px, -30px);
+        }
+    }
+}

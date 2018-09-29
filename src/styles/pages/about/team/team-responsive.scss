@@ -1,0 +1,7 @@
+@include respond-to(mobile) {
+	.team {
+		&__title {
+			@include mobPrimaryHeader;
+		}
+	}
+}

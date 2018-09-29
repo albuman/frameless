@@ -1,0 +1,35 @@
+.input{
+	width: 100%;
+    max-width: 300px;
+    border: none;
+    background: transparent;
+	outline: none;
+	color: black;
+	
+	&::placeholder {
+		font-size: 1em;
+		color: #8b8f91;
+		padding: 0px 15px;
+    }
+}
+.mat-focused .mat-form-field-label {
+	color: get-color(text-secondary) !important;
+}
+
+.mat-form-field-ripple {
+	background-color: get-color(text-secondary) !important;
+}
+.form-field {
+	padding-bottom: 1.25em;
+}
+
+.mat-input-placeholder,
+.mat-input-element {
+	padding-left: 20px !important;
+}
+
+@include respond-to(mobile) {
+	.input {
+		max-width: 100%;
+	}
+}

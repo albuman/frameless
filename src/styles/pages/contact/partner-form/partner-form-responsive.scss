@@ -1,0 +1,24 @@
+@include respond-to(mobile) {
+    .partner-form {
+        &__row {
+            flex-direction: column;
+
+            dropdown,
+            .textarea,
+            .input {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .input {
+                &:not(:last-child) {
+                    padding-right: 0;
+                }
+			}
+			
+			checkbox {
+				margin-bottom: 50px;
+			}
+        }
+    }
+}

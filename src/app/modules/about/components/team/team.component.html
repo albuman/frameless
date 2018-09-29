@@ -1,0 +1,33 @@
+<section class="team">
+	<div class="team__container">
+		<h2 class="team__title">
+			<ng-content></ng-content>
+		</h2>
+		<p class="team__description">
+			Our team members are young, passionate and versatile personalities with a vasr array af knowledge and hands on experience
+			acquired over the years. A broad range of markets we cooperate with is one of the undoubted advantages characterizing
+			our work style.
+		</p>
+		<p class="team__description">
+			However, what we are actually good at is reproducing your vision to the people you want to see it, living no room for them
+			to feel our presence.
+		</p>
+		<div class="team__members-container">
+			<div class="team__member" *ngFor="let member of (teamMembers | async)">
+				<div class="team__member-photo">
+					<img [src]="member.photoSrc" alt="" class="team__member-photo-img">
+				</div>
+				<div class="team__member-details">
+					<div class="team__member-name-container">
+						<span class="team__member-name">
+							{{ member.name }}
+						</span>
+					</div>
+					<span class="team__member-position">
+						{{ member.position }}
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

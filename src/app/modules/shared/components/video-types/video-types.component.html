@@ -1,0 +1,39 @@
+<div class="video-types__container">
+	<h2 class="video-types__title">
+		<ng-content></ng-content>
+	</h2>
+	<ul class="video-types__list">
+		<li class="video-types__list-item" (click)="showVideoTypeDesc(videoTypes.explainer)">
+			<span class="underline-item">Explainer videos</span>
+		</li>
+		<li class="video-types__list-item" (click)="showVideoTypeDesc(videoTypes.product)">
+			<span class="underline-item">Product videos</span>
+		</li>
+		<li class="video-types__list-item" (click)="showVideoTypeDesc(videoTypes.sales)">
+			<span class="underline-item">Sales videos</span>
+		</li>
+		<li class="video-types__list-item" (click)="showVideoTypeDesc(videoTypes.brand)">
+			<span class="underline-item">Brand videos</span>
+		</li>
+		<li class="video-types__list-item" (click)="showVideoTypeDesc(videoTypes.educational)">
+			<span class="underline-item">Educational videos</span>
+		</li>
+		<li class="video-types__list-item" (click)="showVideoTypeDesc(videoTypes.tutorial)">
+			<span class="underline-item">Tutorial videos</span>
+		</li>
+	</ul>
+	<modal-window [id]="videoTypeModalId"
+				  [classes]="{ 'half-screen__details': true }">
+		<ng-container [ngSwitch]="activeDescription">
+			<explainer *ngSwitchCase="videoTypes.explainer"></explainer>
+			<product *ngSwitchCase="videoTypes.product"></product>
+			<sales *ngSwitchCase="videoTypes.sales"></sales>
+			<brand *ngSwitchCase="videoTypes.brand"></brand>
+			<educational *ngSwitchCase="videoTypes.educational"></educational>
+			<tutorial *ngSwitchCase="videoTypes.tutorial"></tutorial>
+		</ng-container>
+		<help-form>
+			Do not know what type of video you need?
+		</help-form>
+	</modal-window>
+</div>

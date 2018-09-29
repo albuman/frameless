@@ -1,0 +1,36 @@
+.partner-form {
+    display: block;
+
+    dropdown {
+        display: block;
+        width: 50%;
+        padding-bottom: 1.25em;
+    }
+
+    &__terms {
+		color: get-color(button);
+		cursor: pointer;
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .input {
+            width: 50%;
+
+            &:not(:last-child) {
+                padding-right: 15px;
+            }
+        }
+
+        .textarea {
+            width: 100%;
+        }
+
+        checkbox {
+            align-self: center;
+        }
+    }
+}

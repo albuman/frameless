@@ -1,0 +1,43 @@
+@include respond-to(mobile) {
+    .help-form {
+        &__title {
+            @include mobPrimaryHeader;
+        }
+
+        &__hint {
+            padding: 40px 0;
+        }
+
+        &__form-container {
+            form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .input {
+                margin-bottom: 20px;
+                padding-right: 0 !important;
+            }
+
+            .form-field {
+                width: 100%;
+            }
+        }
+	}
+	
+	.modal-window__content {
+		.help-form { 
+			max-width: 100%;
+			min-width: unset;
+
+			.form-field {
+				flex-direction: column;
+
+				checkbox {
+					padding-bottom: 15px;
+					margin-right: 0;
+				}
+			}
+		} 
+	}
+}

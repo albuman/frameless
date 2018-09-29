@@ -1,0 +1,65 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	padding-top: 50px;
+	
+	.content-section {
+		padding: 200px 20px 0;
+	}
+
+    &__container {
+        max-width: 900px;
+        width: 100%;
+        display: flex;
+    }
+
+    &__navigation {
+        height: 100%;
+        position: relative;
+    }
+
+    &__content {
+        &-nav {
+            .content-section {
+                height: 100%;
+            }
+        }
+
+        &-main {
+            flex-shrink: 1;
+            flex-grow: 2;
+            flex-basis: 0;
+        }
+
+        &-block {}
+
+        &-title {
+            @include primaryHeader;
+
+            margin-bottom: 100px;
+            width: 100%;
+        }
+
+        &-description {
+            margin-bottom: 20px;
+        }
+
+        &-offers {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 80px 0 0;
+        }
+
+        &-advantage {
+            min-width: 50%;
+            width: 50%;
+            flex-shrink: 1;
+            flex-grow: 1;
+            flex-basis: 0;
+            flex-wrap: wrap;
+            padding: 25px;
+        }
+    }
+}

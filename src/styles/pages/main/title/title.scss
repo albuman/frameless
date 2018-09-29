@@ -1,0 +1,174 @@
+$top_padding: 115px;
+
+.promo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: calc(100vh - #{$top_padding});
+	min-height: 500px;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 30px;
+
+	&__title {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		justify-content: center;
+		max-width: 900px;
+		width: 100%;
+		flex-grow: 3;
+		flex-shrink: 1;
+		flex-basis: auto;
+		opacity: 0;
+		transform: translate(0, 20px);
+		transition: 1s;
+		padding-bottom: 45px;
+
+		&--loaded {
+			opacity: 1;
+			transform: translate(0, 0);
+		}
+
+		&-wrapper {
+
+		}
+	}
+
+	&__description {
+		@include primaryHeader;
+		//animation: fadeInHeader .5s ease-in 5s forwards;
+	}
+
+	&__advantages {
+		display: flex;
+		padding: 20px 0;
+		max-width: 50%;
+		justify-content: space-between;
+		list-style: none;
+	}
+
+	&__advantage-item {
+		display: flex;
+		opacity: 0;
+		transform: translate(0, 10px);
+		transition: .5s;
+
+		&--loaded {
+			opacity: 1;
+			transform: translate(0, 0);
+		}
+
+		&::before {
+			content: '';
+			display: inline-block;
+			align-self: center;
+			margin-right: 5px;
+			height: 6px;
+			width: 6px;
+			border-radius: 50%;
+			background-color: get-color(button);
+		}
+	}
+
+	&__about-company {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding: 50px 0 20px;
+	}
+
+	&__video-description {
+		margin-left: 15px;
+		opacity: 0;
+		transition: .5s;
+
+		&--loaded {
+			opacity: 1;
+		}
+	}
+
+	&__links {
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		width: 100%;
+		padding: 10px;
+		flex: 1 1 auto;
+	}
+
+	&__social-links {
+		display: flex;
+	}
+
+	&__pointer {
+		width: 17px;
+		height: 25px;
+		border-radius: 10px;
+		border: 1px solid black;
+		position: relative;
+
+		&-wrapper {
+			display: flex;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 45px;
+			justify-content: center;
+			align-items: center;
+			padding: 10px;
+		}
+
+		&-wheel {
+			position: absolute;
+			left: 50%;
+			top: 5px;
+			width: 3px;
+			height: 5px;
+			border-radius: 2px;
+			background-color: black;
+			transform: translate(-50%);
+		}
+	}
+
+	.underline-animation {
+		position: relative;
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: calc(100% + 10px);
+			height: .4em;
+			transform: translate(-20px, 50%);
+			left: -5px;
+			bottom: .25em;
+			z-index: -1;
+			background-color: get-color(button);
+			opacity: 0;
+			transition: 1s;
+		}
+		&--loaded {
+			&::after {
+				opacity: 1;
+				transform: translate(0, 50%);
+			}
+		}
+	}
+}
+
+// ANIMATION
+
+@keyframes fadeInHeader {
+	from {
+		color: transparent;
+		transform: translate(-50px, 0);
+	}
+	to {
+		color: get-color(text-primary);
+		transform: translate(0, 0);
+	}
+}
+

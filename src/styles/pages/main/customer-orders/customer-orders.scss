@@ -1,0 +1,298 @@
+.customer-orders {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		width: 100%;
+		height: 800px;
+	}
+
+	&__wrapper {
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	&__active-pointer {
+		display: none;
+		position: absolute;
+		left: -10%;
+		top: 50%;
+		transform: translate(-100%);
+		width: 100%;
+		max-width: 200px;
+
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(0, -50%);
+			width: 100%;
+			height: 0px;
+			border-bottom: 1px solid black;
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(0, -50%);
+			width: 0;
+			height: 1px;
+			border: 6px solid transparent;
+			border-right-color: black;
+		}
+	}
+
+	&__descriptions-wrapper {
+		padding-top: 15px;
+		max-height: 500px;
+	}
+
+	&__title {
+		@include primaryHeader;
+
+		max-width: 900px;
+		width: 100%;
+	}
+
+	&__preview {
+		display: flex;
+		width: 100%;
+		max-width: 900px;
+
+		&-description {
+			padding-right: 20px;
+			padding-bottom: 20px;
+		}
+
+		&-list {
+			display: none;
+		}
+	}
+
+	&__list {
+		max-width: 300px;
+		min-width: 250px;
+		width: 100%;
+		position: relative;
+
+		&-item {
+			padding: 15px 0;
+			cursor: pointer;
+
+			&--active {
+				position: relative;
+
+				// @include activeLine;
+				.customer-orders__active-pointer {
+					display: inline-block;
+				}
+
+				.customer-orders__item-title {
+					display: block;
+					padding: 7px 0;
+					color: get-color(text-secondary);
+				}
+
+				.customer-orders__item-name {
+					@include selectedVideoName;
+				}
+			}
+		}
+	}
+
+	&__target {
+		padding-right: 15px;
+	}
+
+	&__result {
+		padding-left: 15px;
+	}
+
+	&__price-total {
+		padding: 15px 0 15px 20px;
+
+		@include RobotoBold;
+
+		font-size: 1.5em;
+	}
+
+	&__time-total {
+		padding: 15px 0 15px 20px;
+
+		@include RobotoBold;
+
+		font-size: 1.5em;
+	}
+
+	&__target-total {
+		padding: 15px 0 15px 20px;
+		line-height: 1.3em;
+		@include RobotoBold;
+	}
+
+	&__result-total {
+		padding: 15px 0 15px 20px;
+		line-height: 1.3em;
+		@include RobotoBold;
+	}
+
+	&__item {
+		&-title {
+			display: none;
+		}
+
+		&-name {
+			transition: .5s font-size;
+		}
+	}
+
+	&__video {
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			opacity: 0;
+			transition: opacity .5s ease-in-out;
+			background: url("images/placeholder.png") center no-repeat;
+			z-index: -1;
+		}
+
+		&-placeholder--visible {
+			&::before {
+				opacity: 1;
+				z-index: 1;
+			}
+		}
+
+		iframe {
+			pointer-events: unset !important;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__order {
+		&-description {
+			padding: 30px 0 ;
+
+			&-title {
+				text-transform: uppercase;
+				padding: 30px 0;
+				@include RobotoBold;
+			}
+		}
+	}
+
+	&__description {
+		display: flex;
+
+		& > * {
+			flex-shrink: 1;
+			flex-grow: 1;
+			flex-basis: 0;
+			padding-top: 50px;
+		}
+	}
+
+	&__comment {
+		padding: 50px 30px 0 30px;
+
+		&-wrapper {
+			position: relative;
+
+			&::before {
+				content: '“';
+				display: block;
+
+				@include RobotoBold;
+
+				color: get-color(text-secondary);
+				font-size: 10em;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: get-index(underline);
+				opacity: .2;
+			}
+		}
+
+		&-total {
+			padding-top: 20px;
+			font-style: italic;
+		}
+	}
+
+	&__commentator {
+		padding: 20px 0 15px 20px;
+
+		&-name {
+			font-size: 1.5em;
+
+			@include RobotoBold;
+
+			padding-left: 10px;
+		}
+	}
+
+	&__socials {
+		display: flex;
+		padding-top: 20px;
+
+		.socials {
+			margin: 0 25px;
+		}
+	}
+
+	&__more-btn {
+		margin: 50px 0 20px 20px;
+		max-width: 160px;
+	}
+
+	navigation-list {
+		display: block;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	navigation-item {
+		display: block;
+	}
+
+	.modal-window {
+		.help-form {
+			max-width: 100%;
+		}
+	}
+}
+
+.modal-window {
+	.customer-orders {
+		&__item-name {
+			@include selectedVideoName;
+		}
+
+		&__item-title {
+			display: block;
+			padding: 10px 0;
+			color: get-color(text-secondary);
+		}
+	}
+}

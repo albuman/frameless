@@ -1,0 +1,25 @@
+@include respond-to(mobile) {
+    .navigation {
+        padding: 5px 15px 0;
+
+        &__burger-menu {
+            display: block;
+        }
+
+        &__burger-menu &__links-container {
+            flex-direction: column;
+        }
+
+        &__links &__links-container {
+            display: none;
+        }
+
+        &__callback {
+            display: none;
+		}
+		
+		&__order-btn {
+			font-size: .8em;
+		}
+    }
+}

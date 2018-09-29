@@ -1,0 +1,52 @@
+@include respond-to(tablet) {
+	.promo {
+		height: 100vh;
+
+		&__pointer {
+			display: none;
+		}
+
+		.underline-animation {
+			display: inline-block;
+		}
+	}
+}
+
+@include respond-to(mobile) {
+	.promo {
+		max-height: calc(100vh - 80px);
+		padding-bottom: 0;
+
+		&__title {
+			justify-content: space-around;
+		}
+
+		&__description {
+			@include mobPrimaryHeader;
+
+			padding: 50px 20px 0;
+		}
+
+		&__about-company {
+			padding: 35px 0;
+		}
+
+		&__advantages {
+			display: block;
+			padding: 0;
+		}
+
+		&__advantage-item {
+			padding: 15px;
+		}
+
+		&__video-description {
+			display: block;
+			max-width: 110px;
+		}
+
+		&__links {
+			display: none;
+		}
+	}
+}

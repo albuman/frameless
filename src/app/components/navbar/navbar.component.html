@@ -1,0 +1,80 @@
+<nav class="navigation" [ngStyle]="{'top' : isVisible ? '0' : '-150px'}" #nav>
+	<div class="navigation__container"
+		 [ngClass]="{ 'navigation--loaded' : animationHooks.onGoalLabelLoaded, 'navigation--transition' : isFirstLoading}">
+		<a [routerLink]="'/home'" class="navigation__brand-logo">
+			frameless
+		</a>
+		<section class="navigation__links mobile-unvisible">
+			<ul class="navigation__links-container">
+				<li class="navigation__item">
+					<a [routerLink]="'/about'" routerLinkActive="active" class="navigation__link">About Us</a>
+				</li>
+				<li class="navigation__item">
+					<a [routerLink]="'/our-works'" routerLinkActive="active" class="navigation__link">Our works</a>
+				</li>
+				<li class="navigation__item">
+					<a [routerLink]="'/contact'" routerLinkActive="active" class="navigation__link">Contact</a>
+				</li>
+			</ul>
+		</section>
+
+		<section class="navigation__callback">
+			<!-- <div class="navigation__callback-container">
+				<div class="navigation__callback-number">
+					0 800 123 4567
+				</div>
+				<a href="#" class="navigation__callback-order">
+					order call back
+				</a>
+			</div> -->
+			<div class="navigation-order-container">
+				<a class="btn navigation__order-btn" (click)="openOrderWindow($event)">
+					order now
+				</a>
+			</div>
+
+		</section>
+	</div>
+	<section class="navigation__burger-menu scrollable" (touchmove)="preventScrolling($event)">
+		<div class="navigation__nav-toggle" (click)="doToggle()" [class.expanded]="toggled">
+			<div class="navigation__nav-toggle-bar"></div>
+		</div>
+		<nav class="navigation__nav" (click)="doToggle()" [class.expanded]="toggled">
+			<ul class="navigation__links-container">
+				<li class="navigation__item">
+					<a [routerLink]="'/home'" routerLinkActive="active" class="navigation__link">Home</a>
+				</li>
+				<li class="navigation__item">
+					<a [routerLink]="'/about'" routerLinkActive="active" class="navigation__link">About Us</a>
+				</li>
+				<li class="navigation__item">
+					<a [routerLink]="'/our-works'" routerLinkActive="active" class="navigation__link">Our works</a>
+				</li>
+				<li class="navigation__item">
+					<a [routerLink]="'/contact'" routerLinkActive="active" class="navigation__link">Contact</a>
+				</li>
+			</ul>
+			<div class="navigation-order-container">
+				<a class="btn navigation__order-btn" (click)="openOrderWindow($event)">
+					order now
+				</a>
+			</div>
+			<div class="navigation__socials">
+				<socials
+						[instagram]="socialAddresses.instagram"
+						[facebook]="socialAddresses.facebook"
+						[linkedin]="socialAddresses.linkedin"></socials>
+			</div>
+		</nav>
+
+	</section>
+</nav>
+
+<modal-window [id]="orderModalId">
+	<help-form [withCheckbox]="true" (onShowTerms)="openTermsModal()">
+		We will begin the implementation of your project today!
+	</help-form>
+</modal-window>
+<modal-window [id]="termsModalId" [classes]="{ 'terms__modal-window': true }">
+	<terms></terms>
+</modal-window>

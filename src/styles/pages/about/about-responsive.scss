@@ -1,0 +1,13 @@
+@include respond-to(mobile) {
+	.about {
+		&__content {
+			&-nav {
+				display: none;
+			}
+
+			&-title {
+				@include mobPrimaryHeader;
+			}
+		}
+	}
+}

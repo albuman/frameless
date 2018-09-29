@@ -1,0 +1,79 @@
+<div class="customer-orders__preview-description" #view>
+	<ng-container *ngIf="withTitle">
+		<h3 class="customer-orders__item-name">
+			{{ description.name }}
+		</h3>
+		<span class="customer-orders__item-title">
+			{{ description.tag }}
+		</span>
+	</ng-container>
+	<div class="customer-orders__video">
+		<video-player [videoUrl]="description.videoUrl"></video-player>
+	</div>
+	<!--<div class="customer-orders__description customer-orders__price-section">-->
+		<!--<div class="customer-orders__price">-->
+			<!--<span class="customer-orders__price-title second-font">-->
+				<!--Price-->
+			<!--</span>-->
+			<!--<div class="customer-orders__price-total">-->
+				<!--{{description.price}}-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="customer-orders__time">-->
+			<!--<span class="customer-orders__time-title second-font">-->
+				<!--Production time-->
+			<!--</span>-->
+			<!--<div class="customer-orders__time-total">-->
+				<!--{{description.time}}-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+	<div class="customer-orders__description customer-orders__description-section">
+		<div class="customer-orders__target">
+			<span class="customer-orders__target-title second-font">
+				Target
+			</span>
+			<div class="customer-orders__target-total">
+				{{description.target}}
+			</div>
+		</div>
+		<div class="customer-orders__result">
+			<span class="customer-orders__result-title second-font">
+				Result
+			</span>
+			<div class="customer-orders__result-total">
+				{{description.result}}
+			</div>
+		</div>
+	</div>
+	<ng-container *ngIf="description.customer">
+		<div class="customer-orders__comment">
+			<div class="customer-orders__comment-wrapper">
+			<span class="customer-orders__comment-title second-font">
+				Customer review
+			</span>
+				<div class="customer-orders__commentator">
+					<p class="customer-orders__commentator-info">
+					<span class="customer-orders__commentator-position">
+						{{ description.customer.position }}
+					</span>
+						<span class="customer-orders__commentator-name">
+						{{ description.customer.name }}
+					</span>
+					</p>
+					<div class="customer-orders__comment-total">
+						{{ description.customer.feedback }}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="customer-orders__socials">
+			<socials [facebook]="description.customer.facebook"
+					 [instagram]="description.customer.instagram"
+					 [linkedin]="description.customer.linkedin"
+			></socials>
+		</div>
+	</ng-container>
+
+	<a (click)="showOrderDetails()" *ngIf="showMore" class="btn customer-orders__more-btn">More</a>
+</div>

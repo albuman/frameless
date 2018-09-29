@@ -1,0 +1,16 @@
+@include respond-to(mobile) {
+	.footer  {
+		flex-direction: column;
+		padding: 20px;
+
+		&__author,
+		&__rights,
+		&__policy {
+			padding: 5px;
+		}
+
+		&__helper {
+			padding-top: 150px;
+		}
+	}
+}

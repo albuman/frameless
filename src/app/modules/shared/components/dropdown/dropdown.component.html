@@ -1,0 +1,22 @@
+<div class="dropdown" (click)="toggleListVisibility(!isVisibleList, $event)">
+	<div class="dropdown__title-wrapper">
+		<span class="dropdown__title">
+			{{ title }}
+		</span>
+	</div>
+	<div class="dropdown__wrapper">
+		<input type="text" hidden class="dropdown__value" [value]="activeItem">
+		<ul class="dropdown__list" [ngClass]="{ 'dropdown__list--invisible' : !isVisibleList }" #list>
+			<ng-container *ngIf="defaultItem">
+				<li class="dropdown__list-item dropdown__list-item--default" [ngClass]="{ 'dropdown__list-item--active' : defaultItem === activeItem}" (click)="setActiveItem($event, defaultItem)">
+					{{ defaultItem }}
+				</li>
+			</ng-container>
+			<ng-container *ngIf="items">
+				<li class="dropdown__list-item" *ngFor="let item of items" [ngClass]="{ 'dropdown__list-item--active' : item === activeItem}" (click)="setActiveItem($event, item)">
+					{{ item }}
+				</li>
+			</ng-container>
+		</ul>
+	</div>
+</div>

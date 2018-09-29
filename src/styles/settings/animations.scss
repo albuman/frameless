@@ -1,0 +1,69 @@
+@keyframes underline {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 120%;
+	}
+}
+
+/* Play button pulse */
+.round-1,
+.round-2,
+.round-3 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	border: 1px solid rgba($color: #000000, $alpha: 0.15);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: -1;
+
+	&__wave {
+		display: block;
+	}
+}
+
+.round-1 {
+	width: 66%;
+	height: 66%;
+}
+
+.round-2 {
+	width: 66%;
+	height: 66%;
+}
+
+.round-3 {
+	width: 350px;
+	height: 350px;
+	opacity: .4;
+	animation: round 3s ease-in-out infinite alternate;
+}
+
+@keyframes round {
+	0% {
+		width: 350px;
+		height: 350px;
+	}
+
+	100% {
+		width: 500px;
+		height: 500px;
+	}
+}
+
+/* Play button pulse end */
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

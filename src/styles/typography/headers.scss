@@ -1,0 +1,24 @@
+@mixin selectedVideoName() {
+	font-size: 2.5em;
+	@include RobotoBold;
+}
+
+@mixin primaryHeader() {
+	font-size: 4.5em;
+	@include RobotoBold;
+}
+
+@mixin secondaryHeader() {
+	font-size: 3em;
+	@include RobotoBold;
+}
+
+@mixin mobPrimaryHeader() {
+	font-size: 2.5em;
+	@include RobotoBold;
+}
+
+@mixin mobSecondaryHeader() {
+	font-size: 2em;
+	@include RobotoBold;
+}

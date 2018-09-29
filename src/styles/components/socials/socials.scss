@@ -1,0 +1,32 @@
+.social-links {
+	&.main {
+		position: fixed;
+		top: 50%;
+		left: 50px;
+		transform: translate(0, -50%);
+	}
+
+	&--transition {
+
+		.socials {
+			transition: 1s;
+			opacity: 0;
+			transform: translate(0, 15px);
+
+			&--loaded {
+				opacity: 1;
+				transform: translate(0, 0);
+			}
+		}
+	}
+
+	&.secondary {
+		display: flex;
+
+		.linkedin,
+		.instagram,
+		.facebook {
+			padding: 10px;
+		}
+	}
+}

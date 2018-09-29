@@ -1,0 +1,13 @@
+$colors: (
+	text-primary: #171f23,
+	text-secondary: #989ea2,
+	light-grey: #f1f1f1,
+	button: #e74c3c,
+	red-secondary: #d54030
+
+);
+
+
+@function get-color($colorName) {
+	@return map-get($colors , $colorName);
+}

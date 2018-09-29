@@ -1,0 +1,13 @@
+<video-description
+		*ngFor="let video of (worksService.works | async)"
+		[video]="video"
+		(showMore)="activateVideo(video)">
+</video-description>
+
+<modal-window [id]="allVideosModalId"
+			  [classes]="{ 'half-screen__details': true }">
+	<order-details *ngIf="isOpenedModal()"
+			[description]="activeVideo"
+			[withTitle]="true"></order-details>
+</modal-window>
+	

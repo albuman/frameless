@@ -1,0 +1,20 @@
+@include respond-to(mobile) {
+	.modal-window {
+		max-width: 100%;
+		width: 100%;
+		padding: 40px;
+		padding-right: 0;
+
+		&.half-screen__details {
+			width: 100%;
+		}
+
+		&__content {
+			padding-right: 40px;
+		}
+
+		&.random-video__modal-window {
+			width: 100%;
+		}
+	}
+}

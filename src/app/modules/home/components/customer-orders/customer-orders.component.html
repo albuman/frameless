@@ -1,0 +1,25 @@
+<div class="customer-orders__container">
+	<h2 class="customer-orders__title">
+		See how we solved the tasks of our customers
+	</h2>
+
+	<navigation-list
+			[className]="'customer-orders__preview'"
+			[contentClass]="'customer-orders__descriptions-wrapper'"
+			[orders]="orders">
+	</navigation-list>
+
+	<div class="customer-orders__preview">
+		<div class="customer-orders__preview-list" [style.touch-action]="'pan-y'"
+			 (swipeleft)="swipe(currentOrderIndex+1, orders)"
+			 (swiperight)="swipe(currentOrderIndex-1, orders)" #frame>
+			<div class="customer-orders__carousel"
+				 [ngStyle]="{'left' : '-' + currentOrderIndex * 80 + '%', 'width' : (orders.length * 80) + '%'}">
+				<order-details *ngFor="let description of orders; let i = index"
+							   [ngClass]="{'customer-orders__carousel-item': true}"
+							   [description]="description"></order-details>
+			</div>
+		</div>
+
+	</div>
+</div>

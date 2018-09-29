@@ -1,0 +1,16 @@
+@include respond-to(tablet) {
+	.social-links {
+		&.main {
+			left: 20px;
+		}
+
+	}
+}
+
+@include respond-to(mobile) {
+	.social-links {
+		&.main {
+			display: none;
+		}
+	}
+}

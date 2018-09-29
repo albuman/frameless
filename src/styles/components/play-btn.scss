@@ -1,0 +1,42 @@
+.play-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	height: 60px;
+	width: 60px;
+	border-radius: 50%;
+	background-color: get-color(button);
+	border: none;
+	box-shadow: 0 5px 16px rgba(0, 0, 0, 0.3);
+	outline: none;
+	cursor: pointer;
+	opacity: 0;
+	transition: 1s;
+	transform: translate(0, 20px);
+
+	&--loaded {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+
+	&__triangle {
+		display: inline-block;
+		position: relative;
+		height: 0px;
+		width: 0px;
+	
+		&::before {
+			content: '';
+			position: absolute;
+			border-width: 10px;
+			border-right: none;
+			border-left-width: 15px;
+			border-style: solid;
+			border-color: transparent;
+			border-left-color: white;
+			transform: translate(-25%, -50%);
+		}
+	}
+}
+

@@ -1,0 +1,7 @@
+@include respond-to(mobile) {
+    .terms {
+        &__btn-section {
+            display: block;
+        }
+    }
+}

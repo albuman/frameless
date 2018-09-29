@@ -1,0 +1,29 @@
+<section class="help-form">
+	<div class="help-form__container">
+		<h2 class="help-form__title">
+			<ng-content></ng-content>
+		</h2>
+		<p class="help-form__hint">
+			Fill out form below and our manager will contact you within 5 minutes
+		</p>
+		<div class="help-form__form-container">
+			<form action="">
+				<mat-form-field class="input">
+					<input type="text" matInput placeholder="Enter your name">
+				</mat-form-field>
+				<mat-form-field class="input">
+					<input type="text" matInput placeholder="Enter your phone/email">
+				</mat-form-field>
+				<div class="form-field">
+					<ng-container *ngIf="withCheckbox">
+						<checkbox inputId="terms">
+							I accept
+							<a class="partner-form__terms" (click)="showTerms()">the terms data transmission</a>
+						</checkbox>
+					</ng-container>
+					<button type="submit" class="btn">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>

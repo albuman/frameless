@@ -1,0 +1,87 @@
+$textSecondary: get-color(text-secondary);
+
+.video-item {
+    margin: auto;
+    padding-bottom: 200px;
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &__title {
+        @include selectedVideoName;
+    }
+
+    &__category {
+        display: block;
+        padding-top: 5px;
+        color: $textSecondary;
+    }
+
+    &__target {
+        padding-top: 35px;
+
+        &-title {
+            color: $textSecondary;
+        }
+
+        &-description {
+            padding: 10px 0 0 15px;
+        }
+    }
+
+    &__result {
+        padding-top: 35px;
+
+        &-title {
+            color: $textSecondary;
+        }
+
+        &-description {
+            padding: 10px 0 0 15px;
+        }
+    }
+
+    &__more-btn {
+        margin-top: 45px;
+    }
+
+    &__description {
+        order: 1;
+        flex-shrink: 1;
+		flex-grow: 1;
+		flex-basis: 0;
+    }
+
+    &__video {
+        order: 0;
+		flex-shrink: 1;
+		flex-grow: 3;
+		flex-basis: 0;
+        padding: 0 100px;
+    }
+}
+
+.video-item:nth-child(odd) {
+    .video-item__description {
+        order: 0;
+    }
+
+    .video-item__video {
+        order: 1;
+    }
+}
+
+.video-preview {
+    position: relative;
+    min-width: 500px;
+    min-height: 300px;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

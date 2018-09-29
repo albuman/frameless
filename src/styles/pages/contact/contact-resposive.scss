@@ -1,0 +1,20 @@
+@include respond-to(mobile) {
+	.contact {
+		&__title {
+			padding-top: 50px;
+			@include mobPrimaryHeader;
+		}
+
+		&__container {
+			flex-direction: column;
+		}
+
+		&__left-column {
+			margin-right: 0;
+		}
+
+		&__right-column {
+			margin-top: 50px;
+		}
+	}
+}

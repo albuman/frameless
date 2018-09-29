@@ -1,0 +1,49 @@
+<div class="customer-orders__wrapper">
+	<section [class]="className">
+
+		<ul class="customer-orders__list">
+			<navigation-item *ngFor="let description of orders"
+							 [labelFor]="description"
+							 [className]="'customer-orders__list-item'"
+							 [active]="activeItem"
+							 (itemClicked)="activate(description)">
+				<div class="customer-orders__active-pointer"></div>
+				<div class="customer-orders__info-group">
+					<div class="customer-orders__item-name">
+						{{description.name}}
+					</div>
+					<span class="customer-orders__item-title">
+					{{description.tag}}
+				</span>
+				</div>
+			</navigation-item>
+		</ul>
+
+		<div [class]="contentClass">
+			<ng-scrollbar [class]="'mobile-unvisible vertical-scrollbar'" (scrollState)="setActiveLabel($event)">
+				<order-details *ngFor="let order of orders"
+							   (onShowOrderDetails)="openDetailsWindow($event)"
+							   [description]="order"
+							   [showMore]="true"></order-details>
+			</ng-scrollbar>
+		</div>
+		<modal-window [id]="orderDetailsModalId"
+					  [classes]="{ 'half-screen__details': true }">
+			<ng-container *ngIf="currentDescription && isOpenedModal()">
+				<order-details [withTitle]="true" [description]="currentDescription"></order-details>
+				<ng-container *ngIf="currentDescription.description">
+					<h5 class="customer-orders__order-description-title">
+						Descriptions
+					</h5>
+					<p class="customer-orders__order-description">
+						{{ currentDescription.description }}
+					</p>
+				</ng-container>
+				<help-form>
+					Do not know what type of video you need?
+				</help-form>
+			</ng-container>
+		</modal-window>
+
+	</section>
+</div>

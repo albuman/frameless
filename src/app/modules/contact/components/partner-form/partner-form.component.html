@@ -1,0 +1,34 @@
+<form action="" class="partner-form__form">
+	<div class="partner-form__row">
+		<mat-form-field class="input">
+			<input type="text" matInput placeholder="Enter your name">
+		</mat-form-field>
+		<mat-form-field class="input">
+			<input type="text" matInput placeholder="Enter your website">
+		</mat-form-field>
+	</div>
+	<div class="partner-form__row">
+		<mat-form-field class="input">
+			<input type="text" matInput placeholder="Enter your email">
+		</mat-form-field>
+		<dropdown 
+			[items]="dropdownItems" 
+			[title]="dropdownTitle"
+			[default]="dropdownTitle"></dropdown>
+	</div>
+	<div class="partner-form__row">
+		<mat-form-field class="textarea">
+			<textarea matInput placeholder="How can we help? Details please"></textarea>
+		</mat-form-field>
+	</div>
+	<div class="partner-form__row">
+		<checkbox inputId="terms">
+			I accept
+			<a class="partner-form__terms" (click)="showTerms()">the terms data transmission</a>
+		</checkbox>
+		<button type="submit" class="btn">Submit</button>
+	</div>
+</form>
+<modal-window [id]="termsModalId" [classes]="{ 'terms__modal-window': true }">
+	<terms></terms>
+</modal-window>

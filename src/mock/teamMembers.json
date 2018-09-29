@@ -1,0 +1,38 @@
+[
+	{
+		"photoSrc" : "assets/images/1.jpg",
+		"name" : "Vitaliy Manzhos",
+		"position" : "CEO"
+
+	},
+	{
+		"photoSrc" : "assets/images/2.jpg",
+		"name" : "Dariana Buchatska",
+		"position" : "Scriptwriter"
+
+	},
+	{
+		"photoSrc" : "assets/images/3.png",
+		"name" : "Natalia Ostrovska",
+		"position" : "Sales manager"
+
+	},
+	{
+		"photoSrc" : "assets/images/team.png",
+		"name" : "Name Lastname",
+		"position" : "Team member"
+
+	},
+	{
+		"photoSrc" : "assets/images/team.png",
+		"name" : "Name Lastname",
+		"position" : "Team member"
+
+	},
+	{
+		"photoSrc" : "assets/images/team.png",
+		"name" : "Name Lastname",
+		"position" : "Team member"
+
+	}
+]

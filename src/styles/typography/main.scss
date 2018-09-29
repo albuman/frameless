@@ -1,0 +1,96 @@
+// BEBAS
+
+@font-face {
+	font-family: "Bebas Normal";
+	src: url("fonts/BebasNeue Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Bebas Thin";
+	src: url("fonts/BebasNeue Thin.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Bebas Light";
+	src: url("fonts/BebasNeue Light.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Bebas Bold";
+	src: url("fonts/BebasNeue Bold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Bebas Book";
+	src: url("fonts/BebasNeue Book.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin BebasLight {
+	font-family: "Bebas Light";
+}
+
+@mixin BebasRegular {
+	font-family: "Bebas Normal";
+}
+
+@mixin BebasThin {
+	font-family: "Bebas Thin";
+}
+
+@mixin BebasBold {
+	font-family: "Bebas Bold";
+}
+
+@mixin BebasBook {
+	font-family: "Bebas Book";
+}
+
+// ROBOTO
+
+@font-face {
+	font-family: "Roboto";
+	src: url("fonts/Roboto-Medium.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Roboto Bold";
+	src: url("fonts/Roboto-BoldCondensed.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin Roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
+@mixin RobotoBold {
+	font-family: 'Roboto Bold', sans-serif;
+}
+
+// IMPACT
+
+@font-face {
+	font-family: "Impact";
+	src: url("fonts/Impact.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin Impact {
+	font-family: "impact";
+}
+
+
+@import "headers";

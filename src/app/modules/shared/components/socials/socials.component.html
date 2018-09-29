@@ -1,0 +1,12 @@
+<div class="social-links"
+	 [ngClass]="{ 'main' : isPrimary, 'secondary' : !isPrimary, 'social-links--transition' :  isFirstLoading && isPrimary}">
+	<a [href]="instagram" class="socials instagram"
+	   *ngIf="instagram"
+	   [ngClass]="{ 'socials--loaded' : isPrimary && animationHooks.onGoalLabelLoaded }"></a>
+	<a [href]="facebook" class="socials facebook"
+	   *ngIf="facebook"
+	   [ngClass]="{ 'socials--loaded' : isPrimary && animationHooks.onBudgetLabelLoaded }"></a>
+	<a [href]="linkedin" class="socials linkedin"
+	   *ngIf="linkedin"
+	   [ngClass]="{ 'socials--loaded' : isPrimary && animationHooks.onTimeLabelLoaded }"></a>
+</div>

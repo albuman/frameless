@@ -1,0 +1,202 @@
+$top_offset: 0;
+
+$animation_offsets: (
+		common: (
+				from: (
+						x: 0,
+						y: 0
+				),
+				to: (
+						x: -100%,
+						y: 0
+				)
+		),
+		randomVideo: (
+				from: (
+						x: 0,
+						y: -50%
+				),
+				to: (
+						x: -100%,
+						y: -50%
+				)
+		)
+);
+
+@function get_offsets($type) {
+	@if (map_has_key($animation_offsets, $type)) {
+		@return map_get($animation_offsets, $type);
+	} @else {
+		@error "#{$type} don't exist in $animation_offsets";
+	}
+}
+
+@mixin modalTransition($x, $y) {
+	transform: translate($x, $y);
+}
+
+@each $offset_type, $offset_value in $animation_offsets {
+	$offsets: map_get($animation_offsets, #{$offset_type});
+	$from: map_get($offsets, from);
+	$to: map_get($offsets, to);
+
+	@keyframes appearFromRight-#{$offset_type} {
+		from {
+			$x: map_get($from, x);
+			$y: map_get($from, y);
+			@include modalTransition($x, $y);
+		}
+
+		to {
+			$x: map_get($to, x);
+			$y: map_get($to, y);
+			@include modalTransition($x, $y);
+		}
+	}
+
+	@keyframes hideToRight-#{$offset_type} {
+		from {
+			$x: map_get($to, x);
+			$y: map_get($to, y);
+			@include modalTransition($x, $y);
+		}
+
+		to {
+			$x: map_get($from, x);
+			$y: map_get($from, y);
+			@include modalTransition($x, $y);
+		}
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		background-color: rgba(0, 0, 0, 0.0);
+	}
+	to {
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+	to {
+		background-color: rgba(0, 0, 0, 0.0);
+	}
+}
+
+.mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+	&__closing {
+		animation: fadeOut .5s linear forwards;
+		z-index: get-index(mask);
+	}
+
+	&__opening {
+		animation: fadeIn .5s linear forwards;
+		z-index: get-index(mask);
+	}
+}
+
+:-webkit-full-screen-ancestor:not(iframe) {
+	.modal-window {
+		-webkit-animation-fill-mode: none;
+		animation-fill-mode: none;
+	}
+}
+
+.modal-window {
+	padding: 80px;
+	padding-right: 0;
+	background-color: white;
+	position: fixed !important;
+	left: 100%;
+	top: 0;
+	transform: translate(100%, 0);
+	will-change: transform;
+	z-index: get-index(modal-window);
+	max-height: 100%;
+	max-width: 50%;
+	height: 100%;
+	width: auto;
+
+	&.random-video__modal-window {
+		height: auto;
+		min-width: 50%;
+		top: 50%;
+
+		&.modal-window__closing {
+			animation: hideToRight-randomVideo .5s ease-in !important;
+		}
+
+		&.modal-window__opening {
+			animation: appearFromRight-randomVideo .5s ease-out forwards;
+		}
+	}
+
+	&.half-screen__details {
+		width: 50%;
+	}
+
+	&__close-btn {
+		position: absolute;
+		cursor: pointer;
+		width: 40px;
+		height: 40px;
+		top: 50px;
+		right: 50px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 50%;
+			height: 40px;
+			width: 0px;
+			border-left: 1px solid get-color(text-secondary);
+			transform: rotate(-45deg) translate(-1px, 1px);
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 50%;
+			height: 40px;
+			width: 0px;
+			border-left: 1px solid get-color(text-secondary);
+			transform: rotate(45deg);
+		}
+	}
+
+	&__content {
+		position: relative;
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+		padding-right: 80px;
+		@include defaultScroll;
+	}
+
+	&__closing {
+		animation: hideToRight-common .5s ease-in !important;
+	}
+
+	&__opening {
+		animation: appearFromRight-common .5s ease-out forwards;
+
+		iframe:-webkit-full-screen {
+			transform: translate(0, 0) !important;
+		}
+	}
+}

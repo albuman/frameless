@@ -1,0 +1,24 @@
+@include respond-to(mobile) {
+	.video-item {
+		flex-direction: column;
+		padding-bottom: 100px;
+
+		&__description {
+			order: 0 !important;
+		}
+
+		&__video {
+			padding: 20px 0;
+			order: 1 !important;	
+		}
+
+		&__info {
+			order: 2 !important;
+		}
+
+		&__more-btn {
+			margin-top: 0 !important;
+		}
+
+	}
+}

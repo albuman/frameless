@@ -1,0 +1,24 @@
+@include respond-to(mobile) {
+	.our-works {
+		padding-top: 50px;
+		
+		.content-section {
+			padding: 100px 20px 0;
+		}
+
+		&__title {
+			@include mobPrimaryHeader;
+		}
+	}
+    all-works,
+    explainer,
+    product,
+    brand,
+    sales,
+    educational,
+    tutorial {
+        .modal-window {
+            max-width: 100% !important;
+        }
+    }
+}

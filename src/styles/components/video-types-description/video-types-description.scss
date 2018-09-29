@@ -1,0 +1,25 @@
+.video-type-description {
+	&__main-header {
+		@include primaryHeader;
+		margin-bottom: 100px;
+	}
+
+	&__paragraph {
+		margin-bottom: 20px;
+	}
+	
+	&__determination {
+		//border-bottom: 1px solid get-color(text-primary);
+		//font-style: italic;
+	}
+
+	&__secondary-header {
+		@include secondaryHeader;
+		margin-top: 100px;
+		margin-bottom: 50px;
+	}
+
+	&__advantage {
+		padding: 20px;
+	}
+}

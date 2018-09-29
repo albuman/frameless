@@ -1,0 +1,16 @@
+.content-section {
+	padding: 200px 100px 0;
+	margin: 0 auto;
+}
+
+@include respond-to(tablet) {
+	.content-section {
+		padding: 100px 60px;
+	}
+}
+
+@include respond-to(mobile) {
+	.content-section {
+		padding: 50px 20px;
+	}
+}

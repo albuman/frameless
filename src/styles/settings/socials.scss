@@ -1,0 +1,34 @@
+.linkedin,
+.instagram,
+.facebook {
+	display: block;
+	width: 20px;
+	height: 20px;
+	padding: 20px 0;
+	box-sizing: content-box;
+
+	&::before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.instagram {
+	&::before {
+		background: url('images/instagram.png') no-repeat;
+	}
+}
+
+.facebook {
+	&::before {
+		background: url('images/facebook.png') no-repeat;
+	}
+}
+
+.linkedin {
+	&::before {
+		background: url('images/linkedin.png') no-repeat;
+	}
+}

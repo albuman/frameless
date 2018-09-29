@@ -1,0 +1,14 @@
+<ng-container *ngIf="!isClosed()">
+	<div class="mask" (click)="modalService.close(id)"
+		 [ngClass]="{'mask__closing': isClosing, 'mask__opening': isOpened}">
+	</div>
+	<div class="modal-window"
+		 [ngClass]="extend({'modal-window__closing': isClosing, 'modal-window__opening': isOpened}, classes)">
+		<div class="modal-window__close-btn" (click)="modalService.close(id)"></div>
+		<div class="modal-window__content">
+			<ng-content>
+			</ng-content>
+		</div>
+	</div>
+
+</ng-container>
