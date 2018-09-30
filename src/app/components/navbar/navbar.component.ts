@@ -1,11 +1,11 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ModalWindowService} from '../../modules/shared/services/modal-window.service';
-import {AppService} from "../../services/app.service";
-import {Subscription} from "rxjs/Subscription";
-import {fromEvent} from "rxjs/observable/fromEvent";
-import {getScrollTop} from "../../utils/scrollMeasures";
-import {SocialAddresses} from "../../models/socials";
-import {AnimationHooks} from "../../models/AnimationHooks";
+import {AppService} from '../../services/app.service';
+import {Subscription} from 'rxjs/Subscription';
+import {fromEvent} from 'rxjs/observable/fromEvent';
+import {getScrollTop} from '../../utils/scrollMeasures';
+import {SocialAddresses} from '../../models/socials';
+import {AnimationHooks} from '../../models/AnimationHooks';
 
 @Component({
 	selector: 'navbar',
@@ -17,13 +17,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
 	public topScroll: number;
 	public isVisible = true;
 	public orderModalId = 'orderModalWindow';
-	public termsModalId = 'termsModalWindow';
 	public animationHooks: AnimationHooks = <AnimationHooks>{};
 	public isFirstLoading = false;
-	public socialAddresses: SocialAddresses
+	public socialAddresses: SocialAddresses;
 	private firstLoadingSub: Subscription;
 	private disableScrollClass = 'disable-scroll';
 	private scrollSub: Subscription;
+	/*
+	* Modal control properties start
+	* */
+	public termsOpened = false;
+	/*
+	* Modal control properties end
+	* */
 
 	constructor(private modalService: ModalWindowService,
 				public appService: AppService) {
@@ -68,17 +74,29 @@ export class NavbarComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	openOrderWindow(evt): void {
+	public openOrderWindow(evt): void {
 		evt.stopPropagation();
 		this.toggled = !this.toggled;
 		this.modalService.open(this.orderModalId);
 	}
 
 	public openTermsModal(): void {
-		this.modalService.open(this.termsModalId);
+		this.termsOpened = true;
 	}
 
-	public preventScrolling(evt) {
+	public onOrderModalClosed(): void {
+		this.termsOpened = false;
+	}
+
+	public onOrderModalClose(): void {
+		if (this.termsOpened) {
+			this.termsOpened = false;
+			return;
+		}
+		this.modalService.close(this.orderModalId);
+	}
+
+	public preventScrolling(evt): void {
 		evt.preventDefault();
 	}
 

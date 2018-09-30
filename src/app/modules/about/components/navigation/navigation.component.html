@@ -1,15 +1,10 @@
 <div class="side-navigation">
 	<div class="side-navigation__container" #container>
-		<ul class="side-navigation__list" #list [ngClass]="{'bottom-attached' : !isListInBounds()}">
+		<ul class="side-navigation__list" #list>
 			<li *ngFor="let link of links" (click)="scrollTo($event, link.id)" class="side-navigation__link" id="{{link.id}}">
 				{{link.title}}
 			</li>
 		</ul>
 		<div class="side-navigation__position-pointer" #position></div>
 	</div>
-	<ul class="side-navigation__list-daemon">
-		<li *ngFor="let link of links" class="side-navigation__link">
-			{{link.title}}
-		</li>
-	</ul>
 </div>

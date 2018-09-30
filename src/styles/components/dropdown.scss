@@ -1,67 +1,67 @@
 $dropdown_height: 30px;
 
 .dropdown {
-  width: 100%;
-  position: relative;
-  cursor: pointer;
-  font-family: Arial;
-  color: get-color(text-secondary);
-  background-color: white;
-  border-top: .84375em solid transparent;
-  @include Roboto;
-  
-  &__wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  &__value { }
-  
-  &__title {
-    font-size: 1em;
-    
-    &-wrapper {
-      height: 100%;
-      padding: .4375em 0;
-      border-bottom: 1px solid get-color(text-secondary);
-    }
-    
-    vertical-align: middle;
-  }
-  
-  &__list {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    list-style-type: none;
-    list-style-position: inside;
-    padding: 0;
+	width: 100%;
+	position: relative;
+	cursor: pointer;
+	color: get-color(text-secondary);
 	background-color: white;
-	z-index: get-index(dropdown);
-	user-select: none;
-    
-    &--invisible {
-      display: none;
-    }
-    
-    &-item {
-      padding: 10px;
-      cursor: pointer;
-      font-size: 19px;
-      
-      &:hover {
-        background-color: #5897fb;  
-        color: white;
-      }
-      
-      &--active {
-        background-color: #ddd;
-      }
-    }
-  }
+	border-top: .84375em solid transparent;
+	@include Roboto;
+
+	&__wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__value {
+	}
+
+	&__title {
+		font-size: 1em;
+
+		&-wrapper {
+			height: 100%;
+			padding: .4375em 0;
+			border-bottom: 1px solid get-color(text-secondary);
+		}
+
+		vertical-align: middle;
+	}
+
+	&__list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		margin: 0;
+		list-style-type: none;
+		list-style-position: inside;
+		padding: 0;
+		background-color: white;
+		z-index: get-index(dropdown);
+		user-select: none;
+		box-shadow: 0 0 3px get-color(text-secondary);
+
+		&--invisible {
+			display: none;
+		}
+
+		&-item {
+			padding: 10px;
+			cursor: pointer;
+
+			&:hover {
+				color: get-color(button);
+			}
+
+			&--active {
+				background-color: #ddd;
+				color: get-color(text-primary)
+			}
+		}
+	}
 }

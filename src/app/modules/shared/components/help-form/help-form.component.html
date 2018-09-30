@@ -18,7 +18,7 @@
 					<ng-container *ngIf="withCheckbox">
 						<checkbox inputId="terms">
 							I accept
-							<a class="partner-form__terms" (click)="showTerms()">the terms data transmission</a>
+							<a class="partner-form__terms" (click)="showTerms($event)">the terms data transmission</a>
 						</checkbox>
 					</ng-container>
 					<button type="submit" class="btn">Submit</button>

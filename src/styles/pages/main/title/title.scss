@@ -124,6 +124,7 @@ $top_padding: 115px;
 
 		&-wheel {
 			position: absolute;
+			opacity: 0;
 			left: 50%;
 			top: 5px;
 			width: 3px;
@@ -131,6 +132,7 @@ $top_padding: 115px;
 			border-radius: 2px;
 			background-color: black;
 			transform: translate(-50%);
+			animation: mouseWheel 1.5s ease-in-out infinite forwards;
 		}
 	}
 
@@ -169,6 +171,25 @@ $top_padding: 115px;
 	to {
 		color: get-color(text-primary);
 		transform: translate(0, 0);
+	}
+}
+
+@keyframes mouseWheel {
+	0% {
+		top: 5px;
+		opacity: 0;
+	}
+	20% {
+		top: 5px;
+		opacity: 1;
+	}
+	80% {
+		top: 13px;
+		opacity: 1;
+	}
+	100% {
+		top: 13px;
+		opacity: 0;
 	}
 }
 

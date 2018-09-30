@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import API from '../../../constants/API';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { ConverterService } from '../../home/services/converter.service';
+import { ConverterService } from '../../../services/converter.service';
 
 @Injectable()
 export class WorksService {

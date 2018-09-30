@@ -1,7 +1,43 @@
 @include respond-to(mobile) {
-    .terms {
-        &__btn-section {
-            display: block;
-        }
-    }
+	.terms {
+		min-width: unset;
+		width: 100%;
+
+		&__btn-section {
+			display: block;
+		}
+
+		&__modal-window {
+			.terms {
+				min-width: unset;
+				width: 100%;
+
+				&__container,
+				&__btn-section {
+					padding-right: 40px;
+				}
+			}
+		}
+	}
+
+	.modal-window {
+		terms {
+			.terms {
+
+				&__container,
+				&__btn-section {
+					padding-right: 40px!important;
+					@include defaultScroll;
+				}
+			}
+		}
+		&.navigation__modal {
+			terms {
+				width: 100%;
+				padding: 40px;
+				padding-right: 0;
+			}
+		}
+	}
+
 }

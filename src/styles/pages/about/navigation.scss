@@ -3,6 +3,8 @@
 	flex-direction: column;
 	height: 100%;
 	width: 100%;
+	max-width: 200px;
+	margin-right: 25px;
 
 	&__container {
 		flex-shrink: 1;
@@ -15,24 +17,9 @@
 		visibility: hidden;
 	}
 
-	&__list-daemon {
-		visibility: hidden;
-	}
-
     &__list {
-		position: fixed;
-		
-		&.bottom-attached {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-		}
-
-		&.top-attached {
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
+		position: sticky;
+		top: 250px;
     }
 
     &__link {

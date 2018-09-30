@@ -1,7 +1,9 @@
-import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import {Component, OnInit, HostBinding, Input, OnDestroy} from '@angular/core';
 import {CustomerOrder} from "../../../../models/CustomerOrder";
-declare var Hammer;
+import {Subscription} from "rxjs/Subscription";
+import {VideoService} from "../../../../services/video.service";
 
+declare var Hammer;
 
 
 @Component({
@@ -9,20 +11,28 @@ declare var Hammer;
 	templateUrl: './customer-orders.component.html',
 	styles: []
 })
-export class CustomerOrdersComponent implements OnInit {
+export class CustomerOrdersComponent implements OnInit, OnDestroy {
 	@HostBinding('class.customer-orders') className = true;
-	@Input() orders: CustomerOrder[];
+	public orders: CustomerOrder[];
 	public currentOrderIndex = 0;
 
-	constructor(
-	) { }
+	private ordersSubscription: Subscription;
 
-	ngOnInit() {
-
+	constructor(private videoService: VideoService) {
 	}
 
-	swipe(idx, orders) {
-		if (idx < 0 || idx === orders.length) {
+	ngOnInit() {
+		this.ordersSubscription = this.videoService.orders.subscribe(
+			(orders: CustomerOrder[]) => this.orders = orders
+		);
+	}
+
+	ngOnDestroy() {
+		this.ordersSubscription.unsubscribe();
+	}
+
+	swipe(idx) {
+		if (idx < 0 || idx === this.orders.length) {
 			return;
 		}
 

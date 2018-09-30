@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ViewChild, OnDestroy } from '@angular/core';
-import { RootEventListener } from '../../../../utils/rootListener';
+import {Component, OnInit, Input, ViewChild, OnDestroy} from '@angular/core';
+import {RootEventListener} from '../../../../utils/rootListener';
 import {getScrollTop} from '../../../../utils/scrollMeasures';
 
 export interface NavigationLink {
@@ -21,7 +21,8 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
 	private rootListener = new RootEventListener();
 
-	constructor() { }
+	constructor() {
+	}
 
 	ngOnInit() {
 		this.rootListener.add('scroll', this.onScroll.bind(this));
@@ -31,52 +32,11 @@ export class NavigationComponent implements OnInit, OnDestroy {
 		this.rootListener.remove();
 	}
 
-
-	private getContainerCoords() {
-		return this.$container.nativeElement.getBoundingClientRect();
-	}
-
-	private getContainerOffset() {
-		const containerCoords = this.getContainerCoords();
-		return getScrollTop() + containerCoords.top + containerCoords.height;
-	}
-
-	private getPositionPointerCoords() {
-		return this.$position.nativeElement.getBoundingClientRect();
-	}
-
-	private getPositionPointerOffset() {
-		const positionCoords = this.getPositionPointerCoords();
-		return getScrollTop() + positionCoords.top + positionCoords.height;
-	}
-
-	public isListInBounds(): boolean {
-		const positionOffset = this.getPositionPointerOffset()
-		const containerOffset = this.getContainerOffset();
-		
-		if(containerOffset <= positionOffset) {
-			return false;
-		} /*else if(containerOffset >= positionOffset) {
-			this.$list.nativeElement.classList.add(this.topClass);
-		} */ else {
-			// this.$list.nativeElement.classList.remove(this.topClass);
-			return true;	
-		}
-	}
-
-	private getElement(id: string) {
-		return document.querySelector(`[data-for=${id}]`);
-	}
-
-	private getElById(id: string) {
-		return document.getElementById(id);
-	}
-
 	public scrollTo(evt, id: string): void {
 		const el = this.getElement(id);
 		const lastActive = this.$list.nativeElement.querySelector('active');
 
-		if(lastActive && lastActive !== evt.currentTarget) {
+		if (lastActive && lastActive !== evt.currentTarget) {
 			lastActive.classList.remove('active');
 		}
 
@@ -96,7 +56,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
 			} else {
 				el.classList.remove('active');
 			}
-		})
+		});
 	}
 
 	public isLinkActive(id: string): boolean {
@@ -104,7 +64,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
 		if (el) {
 			const elCoords = el.getBoundingClientRect();
-			const { top, height } = elCoords;
+			const {top, height} = elCoords;
 
 			if (top < 0 && top + height >= 0) {
 				return true;
@@ -112,6 +72,14 @@ export class NavigationComponent implements OnInit, OnDestroy {
 		}
 
 		return false;
+	}
+
+	private getElement(id: string) {
+		return document.querySelector(`[data-for=${id}]`);
+	}
+
+	private getElById(id: string) {
+		return document.getElementById(id);
 	}
 
 }

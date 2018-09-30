@@ -1,10 +1,11 @@
-<span class="play-btn__triangle"></span>
-<div class="round-3">
-	<div class="round-3__wave"></div>
-	<div class="round-2">
-		<div class="round-2__wave"></div>
-		<div class="round-1">
-			<div class="round-1__wave"></div>
+<div class="play-btn" [ngClass]="extend(classes)">
+	<div class="play-btn__play" (click)="emitOpeningRandomVideo()">
+		<span class="play-btn__triangle"></span>
+	</div>
+	<div class="round-3">
+		<div class="round-2">
+			<div class="round-1">
+			</div>
 		</div>
 	</div>
 </div>

@@ -5,6 +5,7 @@
     background: transparent;
 	outline: none;
 	color: black;
+	font-size: 14px!important;
 	
 	&::placeholder {
 		font-size: 1em;
@@ -12,20 +13,28 @@
 		padding: 0px 15px;
     }
 }
+
+.mat-form-field-label {
+	color: get-color(text-secondary) !important;
+}
 .mat-focused .mat-form-field-label {
 	color: get-color(text-secondary) !important;
 }
 
 .mat-form-field-ripple {
-	background-color: get-color(text-secondary) !important;
+	background-color: get-color(text-primary) !important;
 }
 .form-field {
 	padding-bottom: 1.25em;
 }
 
+.textarea {
+	font-size: 14px!important;
+}
+
 .mat-input-placeholder,
 .mat-input-element {
-	padding-left: 20px !important;
+	padding-left: 0 !important;
 }
 
 @include respond-to(mobile) {

@@ -1,70 +1,78 @@
 .contact {
-    display: block;
+	display: block;
 
-    &__container {
-        display: flex;
-        margin: auto;
-        max-width: 1000px;
-        width: 100%;
-        justify-content: space-between;
-    }
+	&__container {
+		display: flex;
+		margin: auto;
+		max-width: 1000px;
+		width: 100%;
+		justify-content: space-between;
+	}
 
-    &__title {
-        @include primaryHeader;
+	&__title {
+		@include primaryHeader;
 
-        max-width: 1000px;
-        width: 100%;
-        margin: 0 auto 70px;
-    }
+		max-width: 1000px;
+		width: 100%;
+		margin: 0 auto 70px;
+	}
 
-    &__description {
-        margin-bottom: 50px;
-    }
+	&__description {
+		margin-bottom: 50px;
+	}
 
-    &__left-column {
-        margin-right: 20px;
-    }
+	&__left-column {
+		margin-right: 20px;
+	}
 
-    &__right-column {
+	&__right-column {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-    }
+	}
 
-    &__email {
-        &-title {
-            color: get-color(text-secondary);
-            padding-bottom: 20px;
-        }
+	&__email {
+		&-title {
+			color: get-color(text-secondary);
+			padding-bottom: 20px;
+		}
 
-        &-address {
-            font-size: 2em;
+		&-address {
+			font-size: 2em;
+			cursor: pointer;
+			@include RobotoBold;
 
-            @include RobotoBold;
-        }
+			&:hover {
+				color: get-color(button);
+			}
+		}
 
-        padding-bottom: 30px;
-    }
+		padding-bottom: 30px;
+	}
 
-    &__phone {
-        &-title {
-            color: get-color(text-secondary);
-            padding-bottom: 20px;
-        }
+	&__phone {
+		&-title {
+			color: get-color(text-secondary);
+			padding-bottom: 20px;
+		}
 
-        &-number {
-            font-size: 2em;
+		&-number {
+			font-size: 2em;
+			cursor: pointer;
+			@include RobotoBold;
 
-            @include RobotoBold;
-        }
+			&:hover {
+				color: get-color(button);
+			}
+		}
 
-        padding-bottom: 30px;
-    }
+		padding-bottom: 30px;
+	}
 
-    &__socials {
-        &-title {
-            color: get-color(text-secondary);
-            padding-bottom: 20px;
-        }
-    }
+	&__socials {
+		&-title {
+			color: get-color(text-secondary);
+			padding-bottom: 20px;
+		}
+	}
 }

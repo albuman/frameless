@@ -5,15 +5,16 @@ import {
 	ViewChildren,
 	ViewChild,
 	QueryList,
-	ElementRef,
 	OnChanges,
-	ChangeDetectorRef,
-	SimpleChanges
+	SimpleChanges, OnDestroy
 } from '@angular/core';
 import {OrderDetailsComponent} from '../../../shared/components/order-details/order-details.component';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {ScrollbarComponent} from 'ngx-scrollbar';
-import {ModalWindowService} from "../../../shared/services/modal-window.service";
+import {ModalWindowService} from '../../../shared/services/modal-window.service';
+import {Subscription} from 'rxjs/Subscription';
+import {CustomerOrder} from '../../../../models/CustomerOrder';
+import {VideoService} from '../../../../services/video.service';
 
 interface NavItem {
 	attachedTo: string;
@@ -24,36 +25,38 @@ interface NavItem {
 	templateUrl: './navigation-list.component.html',
 	styles: []
 })
-export class NavigationListComponent implements OnInit, OnChanges {
+export class NavigationListComponent implements OnInit, OnDestroy {
 	@Input() className;
 	@Input() contentClass;
-	@Input() orders;
 	@ViewChildren(OrderDetailsComponent) orderDetails: QueryList<OrderDetailsComponent>;
 	@ViewChild(ScrollbarComponent) scrollBar: ScrollbarComponent;
 
 
 	public orderDetailsModalId = 'orderDetailsModalWindow';
 	public activeItem = new BehaviorSubject(null);
-	public currentDescription:any = null;
+	public currentDescription: any = null;
+	public orders: CustomerOrder[];
 
-	constructor(private modalService: ModalWindowService) {
+	private ordersSubscription: Subscription;
+
+	constructor(private modalService: ModalWindowService,
+				private videoService: VideoService) {
 	}
 
 	ngOnInit() {
+		this.ordersSubscription = this.videoService.orders.subscribe(
+			(orders: CustomerOrder[]) => {
+				this.orders = orders;
 
+				if (orders.length) {
+					this.activeItem.next(orders[0]);
+				}
+			}
+		);
 	}
 
-	log(coords) {
-		console.log(coords);
-	}
-
-	ngOnChanges(changes: SimpleChanges) {
-		if (
-			changes.orders.currentValue &&
-			changes.orders.currentValue.length &&
-			changes.orders.currentValue.length > 0) {
-			this.activeItem.next(this.orders[0]);
-		}
+	ngOnDestroy() {
+		this.ordersSubscription.unsubscribe();
 	}
 
 	activate(navItem) {
@@ -62,8 +65,6 @@ export class NavigationListComponent implements OnInit, OnChanges {
 	}
 
 	scrollTo(navItem) {
-		const framePosition = this.scrollBar.view.getBoundingClientRect();
-
 		for (const child of this.orderDetails.toArray()) {
 			if (navItem === child.description) {
 				this.scrollBar.view.scrollTop = child.view.nativeElement.offsetTop;

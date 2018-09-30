@@ -7,6 +7,9 @@
 		<section class="navigation__links mobile-unvisible">
 			<ul class="navigation__links-container">
 				<li class="navigation__item">
+					<a [routerLink]="'/home'" routerLinkActive="active" class="navigation__link">Home</a>
+				</li>
+				<li class="navigation__item">
 					<a [routerLink]="'/about'" routerLinkActive="active" class="navigation__link">About Us</a>
 				</li>
 				<li class="navigation__item">
@@ -70,11 +73,11 @@
 	</section>
 </nav>
 
-<modal-window [id]="orderModalId">
+<modal-window [id]="orderModalId" (modalClosed)="onOrderModalClosed()"
+			  [classes]="{'navigation__modal': true, 'navigation__modal--terms-opened': termsOpened }">
+	<div class="modal-window__close-btn navigation__modal-close-btn" (click)="onOrderModalClose()"></div>
 	<help-form [withCheckbox]="true" (onShowTerms)="openTermsModal()">
 		We will begin the implementation of your project today!
 	</help-form>
-</modal-window>
-<modal-window [id]="termsModalId" [classes]="{ 'terms__modal-window': true }">
 	<terms></terms>
 </modal-window>

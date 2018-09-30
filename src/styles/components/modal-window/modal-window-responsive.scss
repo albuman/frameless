@@ -16,5 +16,10 @@
 		&.random-video__modal-window {
 			width: 100%;
 		}
+
+		&__close-btn {
+			top: 5px;
+			right: 5px;
+		}
 	}
 }

@@ -5,7 +5,7 @@ const postcss = require('gulp-postcss');
 
 gulp.task('build-styles', function () {
 	return gulp.src('./src/styles/main.scss')
-		.pipe(rename('./src/styles/styles.scss'))
+		.pipe(rename('styles.scss'))
 		.pipe(sass())
 		.pipe(gulp.dest('./src/assets'));
 });

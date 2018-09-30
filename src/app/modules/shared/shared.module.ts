@@ -29,6 +29,10 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
 import { ModalWindowService } from './services/modal-window.service';
 /* END SERVICES */
 
+/*DIRECTIVES*/
+import {CopyToClipboardDirective} from './directives/copy-to-clipboard/copy-to-clipboard.directive';
+/*END DIRECTIVES*/
+
 @NgModule({
 	imports: [
 		CommonModule,
@@ -52,7 +56,8 @@ import { ModalWindowService } from './services/modal-window.service';
 		ExplainerComponent,
 		EducationalComponent,
 		TutorialComponent,
-		BrandComponent
+		BrandComponent,
+		CopyToClipboardDirective
 	],
 	exports: [
 		MatInputModule,
@@ -73,7 +78,8 @@ import { ModalWindowService } from './services/modal-window.service';
 		ExplainerComponent,
 		EducationalComponent,
 		TutorialComponent,
-		BrandComponent
+		BrandComponent,
+		CopyToClipboardDirective
 	],
 	providers: [
 		ModalWindowService

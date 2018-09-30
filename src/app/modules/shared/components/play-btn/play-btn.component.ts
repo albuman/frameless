@@ -1,5 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
-import {animate, state, style} from "@angular/animations";
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
 	selector: 'play-btn',
@@ -7,11 +6,21 @@ import {animate, state, style} from "@angular/animations";
 	styles: []
 })
 export class PlayBtnComponent implements OnInit {
-	@HostBinding('class.play-btn') className = true;
+	@Input() classes: any;
+	@Output() openRandomVideo = new EventEmitter();
 
-	constructor() { }
+	constructor() {
+	}
 
 	ngOnInit() {
+	}
+
+	public extend(...objs): void {
+		return Object.assign({}, ...objs);
+	}
+
+	public emitOpeningRandomVideo(): void {
+		this.openRandomVideo.emit();
 	}
 
 }

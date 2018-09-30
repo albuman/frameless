@@ -1,5 +1,5 @@
 import {Component, OnInit, HostBinding} from '@angular/core';
-import {VideoService} from "./services/video.service";
+import {VideoService} from "../../services/video.service";
 import {CustomerOrder} from "../../models/CustomerOrder";
 
 @Component({

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
 	selector: 'help-form',
@@ -8,12 +8,15 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 export class HelpFormComponent implements OnInit {
 	@Input() withCheckbox: boolean;
 	@Output() onShowTerms = new EventEmitter<any>();
-	
-	constructor() { }
 
-	ngOnInit() { }
+	constructor() {
+	}
 
-	public showTerms() {
+	ngOnInit() {
+	}
+
+	public showTerms(evt) {
+		evt.stopPropagation();
 		this.onShowTerms.emit();
 	}
 

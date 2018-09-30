@@ -1,3 +1,13 @@
+@keyframes navigationMask {
+	from {
+		background: transparent;
+	}
+
+	to {
+		background: rgba(0, 0, 0, .3);
+	}
+}
+
 .navigation {
 	display: block;
 	position: fixed;
@@ -25,6 +35,32 @@
 			transition: 1s;
 			opacity: 1;
 			transform: translate(0, 0);
+		}
+	}
+
+	&__modal {
+		padding: 0!important;
+
+		&--terms-opened {
+			.modal-window__content {
+				top: -100%!important;
+			}
+		}
+
+		.modal-window__close-btn {
+			display: none;
+		}
+		.navigation__modal-close-btn {
+			display: block;
+			position: fixed;
+		}
+
+		.modal-window__content {
+			top: 0;
+			transition: .3s top linear;
+			overflow: hidden;
+			height: 200%;
+			padding-right: 0;
 		}
 	}
 
@@ -79,6 +115,10 @@
 		&.active {
 			@include underline;
 		}
+
+		&:hover {
+			@include underline;
+		}
 	}
 
 	&__callback {
@@ -103,7 +143,13 @@
 	}
 
 	&__order-btn {
+		transition: .5s;
 		text-transform: uppercase;
+
+		&:hover {
+			color: white!important;
+			background-color: get-color(button);
+		}
 	}
 
 	&__socials {

@@ -63,11 +63,11 @@ export class AppService {
 		return this.callsCounter <= 1;
 	}
 
-	public getSocialAdresses():SocialAddresses {
+	public getSocialAdresses(): SocialAddresses {
 		return {
 			facebook: 'http://facebook.com/framelessprod',
 			linkedin: 'https://www.linkedin.com/company/framelessprod/',
 			instagram: 'http://instagram.com/framelessprod'
-		}
+		};
 	}
 }

@@ -10,10 +10,25 @@
 	padding: 50px;
 
 	&__helper {
-		padding-top: 200px;
+		padding-top: 250px;
 	}
 
 	&__policy-link {
 		color: get-color(text-secondary);
+
+		&:hover {
+			color: get-color(text-primary);
+		}
+	}
+
+	&__author {
+		&--link {
+			display: block;
+			color: get-color(text-secondary);
+
+			&:hover {
+				color: get-color(text-primary);
+			}
+		}
 	}
 }
